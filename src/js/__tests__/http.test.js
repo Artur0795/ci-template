@@ -1,15 +1,20 @@
 import { httpGet, httpPost } from '../http';
+import fetchData from '../http';
 
-describe('httpGet', () => {
-  test('httpGet throws an error with the provided URL', () => {
-    const url = 'https://example.com';
-    expect(() => httpGet(url)).toThrow(url);
-  });
+test('httpGet should throw an error', () => {
+  expect(() => {
+    httpGet('http://example.com');
+  }).toThrow('http://example.com');
 });
 
-describe('httpPost', () => {
-  test('httpPost throws an error with the provided URL', () => {
-    const url = 'https://example.com';
-    expect(() => httpPost(url)).toThrow(url);
-  });
+test('httpPost should throw an error', () => {
+  expect(() => {
+    httpPost('http://example.com');
+  }).toThrow('http://example.com');
+});
+
+test('fetchData should throw an error with the correct message', () => {
+  expect(() => {
+    fetchData('http://example.com');
+  }).toThrow('Mock this for http://example.com');
 });
